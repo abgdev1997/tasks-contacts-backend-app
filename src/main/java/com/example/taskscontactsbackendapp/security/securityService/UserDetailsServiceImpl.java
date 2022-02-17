@@ -13,13 +13,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Autentica un usuario de la base de datos
- *
- * Authentication Manager llama al método loadUserByUsername de esta clase
- * para obtener los detalles del usuario de la base de datos cuando
- * se intente autenticar un usuario
- */
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 

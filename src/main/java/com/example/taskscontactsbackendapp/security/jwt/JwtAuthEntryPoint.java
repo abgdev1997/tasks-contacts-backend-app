@@ -11,10 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * Rechaza peticiones no autenticadas devolviendo
- * un código de error 401 unauthorized
- */
 @Component
 public class JwtAuthEntryPoint implements AuthenticationEntryPoint {
 

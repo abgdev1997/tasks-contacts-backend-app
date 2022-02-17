@@ -17,12 +17,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * Filters incoming requests and installs a Spring Security principal if a header corresponding to a valid user is
- * found.
- * Se ejecuta por cada petición entrante con el fin de validar el token JWT
- * en caso de que lo sea se añade al contexto para indicar que un usuario está autenticado
- */
 public class JwtRequestFilter extends OncePerRequestFilter {
 
     private static final Logger logger = LoggerFactory.getLogger(JwtRequestFilter.class);

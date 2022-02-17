@@ -24,9 +24,6 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.List;
 
-/**
- * Clase para la configuración de seguridad Spring Security
- */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -42,8 +39,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private CustomAccessDeniedHandler accessDeniedHandler;
-
-    // ================ CREACIÓN DE BEANS ======================
 
     @Bean
     public UserDetailsServiceImpl userDetailsService() {
@@ -66,9 +61,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-    /**
-     * Configuracion global de CORS para toda la aplicacion
-     */
     @Bean
     CorsConfigurationSource corsConfigurationSource()
     {
@@ -82,7 +74,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return source;
     }
 
-    // ========================= OVERRIDE: SOBREESCRIBIR FUNCIONALIDAD SECURITY POR DEFECTO ======
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService()).passwordEncoder(passwordEncoder());
@@ -90,8 +81,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        // Cross-Site Request Forgery CSRF
-        // CORS (Cross-origin resource sharing)
         http.cors().and().csrf().disable()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()

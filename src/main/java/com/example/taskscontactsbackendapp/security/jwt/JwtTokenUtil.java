@@ -11,9 +11,6 @@ import org.springframework.stereotype.Component;
 import java.security.SignatureException;
 import java.util.Date;
 
-/**
- * Métodos para generar y validar los token JWT
- */
 @Component
 public class JwtTokenUtil {
 
