@@ -1,15 +1,21 @@
 package com.example.taskscontactsbackendapp.models;
 
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name="app_users")
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String username;
     private String email;
     private String password;
+
+    @OneToMany(mappedBy = "user")
     private List<Task> tasks;
 
     public User() {
