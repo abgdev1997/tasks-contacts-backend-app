@@ -21,14 +21,6 @@ public class User {
     public User() {
     }
 
-    public User(Long id, String username, String email, String password, List<Task> tasks) {
-        this.id = id;
-        this.username = username;
-        this.email = email;
-        this.password = password;
-        this.tasks = tasks;
-    }
-
     public Long getId() {
         return id;
     }

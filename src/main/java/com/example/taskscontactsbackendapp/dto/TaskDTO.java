@@ -4,9 +4,9 @@ import com.example.taskscontactsbackendapp.models.States;
 
 public class TaskDTO {
 
-    String name;
-    String description;
-    States state;
+    private String name;
+    private String description;
+    private States state;
 
     public TaskDTO() {
     }
