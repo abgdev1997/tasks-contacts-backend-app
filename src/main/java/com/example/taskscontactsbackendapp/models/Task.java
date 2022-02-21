@@ -1,6 +1,9 @@
 package com.example.taskscontactsbackendapp.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "app_tasks")
@@ -13,11 +16,19 @@ public class Task {
     private String description;
     private States state;
 
+    @JsonBackReference
     @ManyToOne()
-    @JoinColumn(name="user_id", nullable=false)
+    @JoinColumn(name = "user_id")
     private User user;
 
     public Task() {
+    }
+
+    public Task(Long id, String name, String description, States state) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.state = state;
     }
 
     public Task(Long id, String name, String description, States state, User user) {

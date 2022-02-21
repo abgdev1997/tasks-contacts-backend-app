@@ -6,12 +6,12 @@ public class TaskDTO {
 
     private String name;
     private String description;
-    private States state;
+    private String state;
 
     public TaskDTO() {
     }
 
-    public TaskDTO(String name, String description, States state) {
+    public TaskDTO(String name, String description, String state) {
         this.name = name;
         this.description = description;
         this.state = state;
@@ -33,11 +33,11 @@ public class TaskDTO {
         this.description = description;
     }
 
-    public States getState() {
+    public String getState() {
         return state;
     }
 
-    public void setState(States state) {
+    public void setState(String state) {
         this.state = state;
     }
 }

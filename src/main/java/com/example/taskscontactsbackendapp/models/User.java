@@ -1,5 +1,8 @@
 package com.example.taskscontactsbackendapp.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,10 +18,19 @@ public class User {
     private String email;
     private String password;
 
-    @OneToMany(mappedBy = "user")
+    @JsonManagedReference
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Task> tasks;
 
     public User() {
+    }
+
+    public User(Long id, String username, String email, String password, List<Task> tasks) {
+        this.id = id;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.tasks = tasks;
     }
 
     public Long getId() {
@@ -52,6 +64,8 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+
 
     public List<Task> getTasks() {
         return tasks;
